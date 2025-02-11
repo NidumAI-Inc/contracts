@@ -28,11 +28,9 @@ contract Nidum is ERC20, ERC20Burnable, AccessControl, ERC20Permit, Pausable {
             "Mismatched allocation lengths"
         );
 
-        // Assign the default admin role to the provided address
         _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
         _grantRole(MINTER_ROLE, minter);
 
-        // Allocate initial supply
         uint256 totalAllocated = 0;
         for (uint256 i = 0; i < initialRecipients.length; i++) {
             _mint(initialRecipients[i], initialAllocations[i]);
@@ -80,7 +78,6 @@ contract Nidum is ERC20, ERC20Burnable, AccessControl, ERC20Permit, Pausable {
         uint256 amount
     ) internal override {
         if (from != address(0)) {
-            // Ignore blacklist check for minting
             require(!blacklisted[from], "Sender is blacklisted");
         }
         require(!blacklisted[to], "Receiver is blacklisted");

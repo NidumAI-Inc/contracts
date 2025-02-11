@@ -141,14 +141,12 @@ contract MachineRegistry is Ownable {
         string[] memory userApps = apps[msg.sender];
         uint256 totalAlive = 0;
 
-        // First loop: count alive machines
         for (uint256 i = 0; i < userApps.length; i++) {
             if (appToMachine[userApps[i]].isAlive) {
                 totalAlive++;
             }
         }
 
-        // Second loop: store them
         Machine[] memory aliveMachines = new Machine[](totalAlive);
         uint256 index = 0;
         for (uint256 i = 0; i < userApps.length; i++) {
