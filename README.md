@@ -7,6 +7,8 @@ Before getting started, make sure you have the following installed:
 - [Hardhat](https://hardhat.org/) for development and testing
 - [MetaMask](https://metamask.io/) or another Web3 wallet
 
+#### Recommend Solidity compiler: `0.8.22`
+
 ## Contracts:
 
 1. [NidumToken.sol](./contracts/NidumToken.sol) : An ERC20 token contract that handles the NIDUM token - the native utility and reward token of the Nidum AI platform. Used for compensating for AI Mining.
